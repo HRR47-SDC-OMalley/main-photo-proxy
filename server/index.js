@@ -19,20 +19,20 @@ const photoTarget = process.env.PHOTO_TARGET
 const photoScriptUrl = process.env.PHOTO_SCRIPT
   || 'http://localhost:3001/bundle.js';
 // Sidebar
-const sbTarget = process.env.SB_TARGET
-  || 'http://localhost:3210';
-const sbScriptUrl = process.env.SB_SCRIPT
-  || 'http://localhost:3210/bundle.js';
-// User Reviews
-const reviewsTarget = process.env.REVIEWS_TARGET
-  || 'http://localhost:2625';
-const reviewsScriptUrl = process.env.REVIEWS_SCRIPT
-  || 'http://localhost:2625/dist/bundle.js';
-// Similar Listing and News
-const slnTarget = process.env.SLN_TARGET
-  || 'http://localhost:3005';
-const slnScriptUrl = process.env.SLN_SCRIPT
-  || 'http://localhost:3005/similar-listings-news.bundle.js';
+// const sbTarget = process.env.SB_TARGET
+//   || 'http://localhost:3210';
+// const sbScriptUrl = process.env.SB_SCRIPT
+//   || 'http://localhost:3210/bundle.js';
+// // User Reviews
+// const reviewsTarget = process.env.REVIEWS_TARGET
+//   || 'http://localhost:2625';
+// const reviewsScriptUrl = process.env.REVIEWS_SCRIPT
+//   || 'http://localhost:2625/dist/bundle.js';
+// // Similar Listing and News
+// const slnTarget = process.env.SLN_TARGET
+//   || 'http://localhost:3005';
+// const slnScriptUrl = process.env.SLN_SCRIPT
+//   || 'http://localhost:3005/similar-listings-news.bundle.js';
 
 /**
  * Serve template
@@ -65,22 +65,22 @@ if (CLOUD_STYLE_URL) {
 const photoProxy = { target: photoTarget, changeOrigin: true };
 app.use('*/photo/api/*', createProxyMiddleware(photoProxy));
 
-/**
- * Sidebar Proxy
- */
-const sbProxy = { target: sbTarget, changeOrigin: true };
-app.use('*/sb/api/*', createProxyMiddleware(sbProxy));
+// /**
+//  * Sidebar Proxy
+//  */
+// const sbProxy = { target: sbTarget, changeOrigin: true };
+// app.use('*/sb/api/*', createProxyMiddleware(sbProxy));
 
-/**
- * Seller Reviews Proxy
- */
-const reviewsProxy = { target: reviewsTarget, changeOrigin: true };
-app.use('*/reviews/api/*', createProxyMiddleware(reviewsProxy));
+// /**
+//  * Seller Reviews Proxy
+//  */
+// const reviewsProxy = { target: reviewsTarget, changeOrigin: true };
+// app.use('*/reviews/api/*', createProxyMiddleware(reviewsProxy));
 
-/**
- * Similar Listings & Related News Proxy
- */
-const slnProxy = { target: slnTarget, changeOrigin: true };
-app.use('*/sln/api/*', createProxyMiddleware(slnProxy));
+// /**
+//  * Similar Listings & Related News Proxy
+//  */
+// const slnProxy = { target: slnTarget, changeOrigin: true };
+// app.use('*/sln/api/*', createProxyMiddleware(slnProxy));
 
 app.listen(PORT, () => console.log(`ReBurke listening on ${URL}:${PORT}`));
