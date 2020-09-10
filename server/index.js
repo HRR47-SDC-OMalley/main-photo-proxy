@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+require('newrelic');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const pug = require('pug');
 
@@ -40,9 +41,9 @@ const photoScriptUrl = process.env.PHOTO_SCRIPT
 app.get('/item/:id', (req, res) => {
   res.end(pug.renderFile(path.resolve(__dirname, './../client/listing.pug'), {
     photoScriptUrl,
-    sbScriptUrl,
-    reviewsScriptUrl,
-    slnScriptUrl
+    //sbScriptUrl,
+    //reviewsScriptUrl,
+    //slnScriptUrl
   }));
 });
 
